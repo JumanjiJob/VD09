@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>Регистрация</h1>
-    <form method="post" action="{{url_for('register')}}">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.username.label}}
-            {{ form.username}}
-        </div>
-        <div>
-            {{ form.password.label}}
-            {{ form.password}}
-        </div>
-        <div>
-            {{ form.confirm_password.label}}
-            {{ form.confirm_password}}
-        </div>
-        <div>
-            {{ form.submit}}
-        </div>
-    </form>
 
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Регистрация</h1>
+        <form method="post" action="{{ url_for('register') }}" class="w-50 mx-auto p-4 border rounded shadow-sm">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-label") }}
+                {{ form.confirm_password(class="form-control") }}
+            </div>
+
+            <div class="form-group text-center">
+                {{ form.submit(class="btn btn-success btn-lg") }}
+            </div>
+        </form>
+    </div>
 {% endblock %}
